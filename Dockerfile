@@ -7,6 +7,10 @@ COPY calendso/prisma prisma
 RUN yarn install --frozen-lockfile
 
 FROM node:14-alpine as builder
+ARG BASE_URL
+ENV BASE_URL=$BASE_URL
+ENV NEXT_PUBLIC_LICENSE_CONSENT agree
+
 WORKDIR /app
 COPY calendso .
 COPY --from=deps /app/node_modules ./node_modules
