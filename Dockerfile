@@ -19,6 +19,7 @@ RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 FROM node:14-alpine as runner
 WORKDIR /app
 ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
 
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/next-i18next.config.js ./
