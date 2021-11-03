@@ -27,6 +27,3 @@ jobs:
           project: '1816'
           tag: ${{ steps.vars.outputs.sha_short }}
           token: ${{ secrets.PORTER_TOKEN_1816 }}
-
-env:
-  NEXT_PUBLIC_LICENSE_CONSENT: agree
